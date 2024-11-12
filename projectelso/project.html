@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+</head>
+<style>
+    fieldset{
+        width: 30px;
+    }
+</style>
+<body>
+    <button onclick="gombos()">Nyomj meg</button>
+    <button onclick="field()">Nyomj meg</button>
+
+    <p id="szep"></p>
+    <p id="pes"></p>
+    <script>
+        function gombos()
+        {
+            var p = document.createElement("button");
+            var node = document.createTextNode("Kész");
+            p.appendChild(node);
+            
+            var div = document.getElementById("szep");
+            div.appendChild(p);
+        }
+
+        function field(){
+            var szia=document.createElement("fieldset");
+            var hallo=document.createTextNode("JUhuu");
+            szia.appendChild(hallo);
+
+            var cs=document.getElementById("pes");
+            cs.appendChild(szia);
+        }
+    </script>
+</body>
+</html>
