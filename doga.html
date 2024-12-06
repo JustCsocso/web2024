@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolgozat</title>
+    <style>
+        body
+        {
+            background-color: antiquewhite;
+        }
+        .kattintott
+        {
+            background-color: black;
+        }
+        #gomb{
+            
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form" action="">
+    </form>
+    
+    
+    
+    <div >
+        <button id="gomb" onclick="kezdes()">+</button>
+        <div id="field"></div>
+    </div>
+    
+
+    <script>
+        function kezdes()
+        {
+            
+            /*var list=document.getElementById("kek")
+            var input=document.createElement("input")
+            var x=document.createTextNode("szaia")
+            input.appendChild(x)
+            list.appendChild(input)
+            
+            document.body.appendChild(input);
+            input.setAttribute("type","text")
+            
+            input.addEventListener("keypress",nyomas);
+            if(nyomas=="Enter"){
+                input=document.createElement()
+                */
+            
+            const szia = document.getElementById("field");
+            const div = document.createElement("div");
+            const input = document.createElement("input");
+            const button = document.createElement("button");
+            const x=document.createTextNode("Törlés");
+            button.appendChild(x);
+            //input.setAttribute("type", "text");
+            
+            //input.classList.add("input-field");
+            div.appendChild(input);
+            szia.appendChild(div);
+            
+            /*
+            input.type = "text";
+            input.placeholder = "szoveg";
+            if(ertek !== "")
+            {
+                input.value = ertek;
+            }
+            input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+            event.preventDefault();
+            input.value = event;
+            console.log(event);
+            this.parentElement.classList.toggle("kattintott");
+            this.parentElement.innerHTML = this.value;
+            
+
+            }
+
+        });
+        */
+        input.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {  
+                    const textDiv = document.createElement("div");
+                    textDiv.textContent = input.value;  
+                    div.innerHTML = '';  
+                    div.appendChild(textDiv);  
+                    showText(input.value);
+                    input.value = '';  
+                }
+            });
+
+            div.appendChild(input);    
+            szia.appendChild(div);    
+        }
+
+        
+        document.getElementById("addButton").addEventListener("click", nyomas);
+        
+    
+/*
+    function inputKeszit(ertek)
+{
+    let input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "szoveg";
+    if(ertek !== "")
+    {
+        input.value = ertek;
+    }
+
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          //input.value = event;
+          //console.log(event);
+          this.parentElement.classList.toggle("kattintott");
+          this.parentElement.innerHTML = this.value;
+          
+        }
+      });
+
+    return input;
+}
+    */   
+        
+    </script>
+</body>
+</html>

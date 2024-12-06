@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+</head>
+<style>
+    fieldset{
+        width: 30px;
+    }
+</style>
+<body>
+    <form id="myForm">
+        <label>szellesege:</label>
+        <input type="number" id="szelesseg"><br>
+        <label>magassaga:</label>
+        <input type="number" id="magassag"><br>
+    </form><br>
+    <fieldset id="szia">
+        Nev: <input type="text">
+    </fieldset><br>
+    
+    <button onclick="field()">Fieldset</button>
+    <button onclick="legend()">Legend</button>
+    <button onclick="myFunction()">Datalist</button>
+  
+    <p id="pes"></p>
+    <p id="nem"></p>
+    <script>
+        
+        
+        function field(){
+            /*
+            var fieldset= document.getElementById('field');đ
+            var fieldParent = fieldset.parentNode;
+            var newFieldSet = document.createElement('fieldset');
+            newFieldSet.innerHTML = fieldset.innerHTML;
+            fieldParent.appendChild(newFieldSet);
+            
+            var szia=document.createElement("fieldset");
+            var hallo=document.createTextNode("JUhuu");
+            szia.appendChild(hallo);
+
+            var cs=document.getElementById("pes");
+            cs.appendChild(szia);
+            */
+            let width=document.getElementById("szelesseg").value
+            let height=document.getElementById("magassag").value
+            let iras=prompt("Írj valamit: ")
+            
+            var a = 0;
+            var mousePosition;
+            var offset = [0, 0];
+            var fieldset;
+            var isDown = false;
+
+            fieldset = document.createElement("fieldset");
+            fieldset.style.position = "absolute";
+            fieldset.setAttribute("id", "fieldset" + a)
+            fieldset.style.left = "0px";
+            fieldset.style.top = "0px";
+            fieldset.style.width = width+ "px";
+            fieldset.style.height = height+ "px";
+            //fieldset.style.background = "blue";
+            fieldset.style.color = "black";
+            fieldset.textContent=iras;
+            
+
+
+            document.body.appendChild(fieldset);
+
+            fieldset.addEventListener('mousedown', function (e) {
+                isDown = true;
+                offset = [
+                    fieldset.offsetLeft - e.clientX,
+                    fieldset.offsetTop - e.clientY
+                ];
+            }, true);
+
+            document.addEventListener('mouseup', function () {
+                isDown = false;
+            }, true);
+
+            document.addEventListener('mousemove', function (event) {
+                event.preventDefault();
+                if (isDown) {
+                    mousePosition = {
+
+                        x: event.clientX,
+                        y: event.clientY
+
+                    };
+                    fieldset.style.left = (mousePosition.x + offset[0]) + 'px';
+                    fieldset.style.top = (mousePosition.y + offset[1]) + 'px';
+                }
+            }, true);
+            
+        }
+
+        
+        function legend(){
+            var x = document.createElement("legend");
+            var t = document.createTextNode("Ezaaaz!");
+            x.appendChild(t);
+            document.getElementById("szia").appendChild(x);
+            /*
+            var x = document.createElement("legend");
+            var t = document.createTextNode("LEGENDÁS");
+            x.appendChild(t);
+
+            var legenda=document.getElementById("nem")
+            legenda.appendChild(x)
+            
+            let width=prompt("Mekkora legyen a szélesség: ")
+            let height=prompt("Mekkora legyen a magasság: ")
+            let iras=prompt("Írj valamit: ")
+            
+            var a = 0;
+            var mousePosition;
+            var offset = [0, 0];
+            var legend;
+            var isDown = false;
+
+
+            legend = document.createElement("legend");
+            szia=document.createTextNode("Szia cica");
+            legend.style.position = "absolute";
+            legend.setAttribute("id", "legend" + a)
+            legend.style.left = "0px";
+            legend.style.top = "0px";
+            legend.style.width = width+ "px";
+            legend.style.height = height+ "px";
+            //legend.style.background = "blue";
+            legend.style.color = "black";
+            legend.style.borderStyle="solid";
+            legend.textContent=iras;
+            
+
+
+            document.body.appendChild(legend);
+
+            legend.addEventListener('mousedown', function (e) {
+                isDown = true;
+                offset = [
+                    legend.offsetLeft - e.clientX,
+                    legend.offsetTop - e.clientY
+                ];
+            }, true);
+
+            document.addEventListener('mouseup', function () {
+                isDown = false;
+            }, true);
+
+            document.addEventListener('mousemove', function (event) {
+                event.preventDefault();
+                if (isDown) {
+                    mousePosition = {
+
+                        x: event.clientX,
+                        y: event.clientY
+
+                    };
+                    legend.style.left = (mousePosition.x + offset[0]) + 'px';
+                    legend.style.top = (mousePosition.y + offset[1]) + 'px';
+                }
+            }, true);
+            */
+
+        }
+        function myFunction() {
+        var x = document.createElement("input");
+        x.setAttribute("list", "browsers");
+        document.getElementById("myForm").appendChild(x);
+
+        var y = document.createElement("datalist");
+        y.setAttribute("id", "browsers");
+        document.getElementById("myForm").appendChild(y);
+
+        var z = document.createElement("option");
+        z.setAttribute("value", "Chrome");
+        document.getElementById("browsers").appendChild(z);
+}
+    </script>
+</body>
+</html>

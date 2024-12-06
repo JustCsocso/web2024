@@ -1,0 +1,40 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(spider.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slide-pair {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    animation: fadeEffect 2s ease-in-out;
+}
+
+.slide-pair img {
+    width: 49%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Animáció */
+@keyframes fadeEffect {
+    0%   {background-image: url(miles.avif); bottom:0px; top:0px;}
+    100%{background-image: url(miles.avif);bottom: 600px;top: 200px;}
+}

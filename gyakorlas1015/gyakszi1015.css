@@ -1,0 +1,13 @@
+table#tabla, table#tabla td
+{
+    border: 1px solid rebeccapurple;
+}
+table#tabla td{
+    width: 20px;
+    height: 20px;
+}
+
+.kattintott
+{
+    background-color: black;
+}
