@@ -1,18 +1,24 @@
-// script.js
+
 let slideIndex = 0;
 
 function showSlides() {
     const slidePairs = document.querySelectorAll(".slide-pair");
 
-    slidePairs.forEach((pair) => (pair.style.display = "none")); // Rejtse el az összes képpárt
+    slidePairs.forEach((pair) => {
+        pair.style.display = "none"; 
+        pair.style.animation = "none"; 
+    });
 
     slideIndex++;
     if (slideIndex > slidePairs.length) {
-        slideIndex = 1; // Visszatérés az első képpárhoz
+        slideIndex = 1; 
     }
 
-    slidePairs[slideIndex - 1].style.display = "flex"; // Mutassa az aktuális képpárt
-    setTimeout(showSlides, 4000); // 4 másodpercenként váltás
+    const currentSlide = slidePairs[slideIndex - 1];
+    currentSlide.style.display = "flex"; 
+    currentSlide.style.animation = "slideIn 4s ease-in-out forwards";
+
+    setTimeout(showSlides, 5000); 
 }
 
 // Indítás
