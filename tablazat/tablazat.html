@@ -1,51 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tablazat</title>
-
-    <style>
-        table {
-    border-collapse: collapse;
-    }
-        td {
-    border: 1px solid black;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    vertical-align: middle;
-    background-color: aquamarine;
-    }
-    </style>
+    <title>Document</title>
+    <script src="szia.js"></script>
+    <link rel="stylesheet" href="szia.css">
 </head>
-<body>
-    <table id="table"></table>
+<body onload="init()">
     
-    <script>
-        const table = document.getElementById("table");
-    
-        // Külső ciklus a sorokhoz
-        for (let i = 0; i < 8; i++) {
-            const row = document.createElement("tr"); // Új sor létrehozása
-    
-            // Belső ciklus az oszlopokhoz
-            for (let j = 0; j < 8; j++) {
-                const cell = document.createElement("td"); // Új cella létrehozása
-    
-                // Kattintás esemény hozzáadása a cellához
-                cell.addEventListener("click", function() {
-                    const value = prompt("Kérlek, adj meg egy értéket:"); // Párbeszédablak megjelenítése
-                    if (value !== null) { // Ellenőrizzük, hogy nem nyomott-e meg a felhasználó "Mégse" gombot
-                        cell.textContent = value; // A bevitt érték beállítása a cellába
-                    }
-                });
-    
-                row.appendChild(cell); // Cella hozzáadása a sorhoz
-            }
-    
-            table.appendChild(row); // Sor hozzáadása a táblázathoz
-        }
-    </script>
-    </body>
+</body>
 </html>
