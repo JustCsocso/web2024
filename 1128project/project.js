@@ -21,5 +21,5 @@ function showSlides() {
     setTimeout(showSlides, 5000); 
 }
 
-// Indítás
+
 document.addEventListener("DOMContentLoaded", showSlides);

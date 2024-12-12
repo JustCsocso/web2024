@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url(spider.png);
+    background-image: url(kepek/spider.png);
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -13,8 +13,8 @@ body {
 
 .slideshow-container {
     position: relative;
-    width: 800px;
-    height: 400px;
+    width: 1000px;
+    height: 600px;
     overflow: hidden;
 }
 
@@ -25,6 +25,7 @@ body {
     height: 100%;
     justify-content: space-between;
     
+
     animation: slideIn 7s ease-in-out forwards;
 }
 
@@ -32,6 +33,7 @@ body {
     width: 45%;
     height: auto;
     border-radius: 8px;
+    object-fit: cover;
 }
 
 
