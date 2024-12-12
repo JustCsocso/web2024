@@ -1,4 +1,16 @@
+const fs = require("fs");
 
+ function getFolderFiles(path, extension) {
+     let files = fs.readdirSync(path);
+     return files.filter((file) =>
+       file.match(new RegExp(`.*\.(${extension})`, "ig"))
+     );
+ }
+
+ console.log(getFolderFiles("./fiu", ".jpg"));
+ images = [getFolderFiles("./fiu", ".jpg")];
+ console.log(images[0]);
+/*
 let slideIndex = 0;
 
 function showSlides() {
@@ -23,3 +35,4 @@ function showSlides() {
 
 
 document.addEventListener("DOMContentLoaded", showSlides);
+*/
