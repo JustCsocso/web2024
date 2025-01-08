@@ -1,0 +1,50 @@
+Egy hónap napi legalacsonyabb hőmérsékleteiből a fagyos napok megszámolása.
+Program:
+Be: NAPOK_SZÁMA, HŐMÉRSÉKLETEK
+FAGYOS_NAP:=0
+NAP:=0
+Ciklus amíg NAP<NAPOK_SZÁMA
+Ha HŐMÉRSÉKLETEK[NAP]<0 akkor FAGYOS_NAP:=FAGYOS_NAP+1
+NAP:=NAP+1
+Ciklus vége
+Ki: FAGYOS_NAP
+Program vége
+A programban 2 feltétel kiértékelés szerepel. A programon átvezető tesztutak:
+A. A ciklusfeltétel eleve hamis, a ciklusba nem lépünk be.
+B. A ciklusfeltétel először igaz, az elágazásfeltétel igaz, utána a ciklusfeltétel hamissá válik.
+C. A ciklusfeltétel először igaz, az elágazásfeltétel hamis, utána a ciklusfeltétel hamissá válik.
+A 3 útból elegendő B-t és C-t választani, A mindkettőnek része.
+Az előfeltétel: 0<=NAPOK_SZÁMA <=31 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50.
+Mindkét útnál el kell jutni először a ciklusig, ezért a tesztpredikátum:
+B-C. 0<=NAPOK_SZÁMA<=31 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50 és
+FAGYOS_NAP =0 és NAP =0.
+A ciklusfeltételnek először igaznak kell lennie:
+B-C. 0<=NAPOK_SZÁMA<=31 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50 és
+FAGYOS_NAP =0 és NAP =0 és NAP<NAPOK_SZÁMA.
+Ez lerövidítve:
+B-C. . 0<NAPOK_SZÁMA<=31 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50 és
+FAGYOS_NAP =0 és NAP =0.
+Az elágazásnál a két tesztút különválik:
+B. 0<NAPOK_SZÁMA<=31 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50 és FAGYOS_NAP
+=0 és NAP =0 és HŐMÉRSÉKLETEK[NAP]<0.
+C. 0<NAPOK_SZÁMA<=31 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50 és FAGYOS_NAP
+=0 és NAP =0 és HŐMÉRSÉKLETEK[NAP]>=0.
+B tesztútnál végrehajtjuk az elágazásban szereplő növelést, C-nél nem, utána:
+B. 0<NAPOK_SZÁMA<=31 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50 és FAGYOS_NAP
+=1 és NAP =0 és HŐMÉRSÉKLETEK[0]<0.
+C. 0<NAPOK_SZÁMA<=31 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50 és FAGYOS_NAP
+=0 és NAP =0 és HŐMÉRSÉKLETEK[0]>=0.
+A NAP növelése után a ciklusfeltételnek már nem szabad teljesülnie:
+B. 0<NAPOK_SZÁMA<=31 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50 és FAGYOS_NAP
+=1 és NAP =1 és HŐMÉRSÉKLETEK[0]<0 és NAP>=NAPOK_SZÁMA.
+
+C. 0<NAPOK_SZÁMA<=31 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50 és FAGYOS_NAP
+=0 és NAP =1 és HŐMÉRSÉKLETEK[0]>=0 és NAP>=NAPOK_SZÁMA.
+Ebből a bemenetben nem szereplő változók elhagyásával kapjuk a végleges tesztpredikátumokat:
+B. NAPOK_SZÁMA=1 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50 és
+HŐMÉRSÉKLETEK[0]<0.
+C. NAPOK_SZÁMA=1 és Ɐi (0<=i<NAPOK_SZÁMA) -30<HŐMÉRSÉKLETEK[i]<50 és
+HŐMÉRSÉKLETEK[0]>=0.
+Tesztesetek meghatározása:
+B. NAPOK_SZÁMA=1 és HŐMÉRSÉKLETEK[0]=-1
+C. NAPOK_SZÁMA=1 és HŐMÉRSÉKLETEK[0]=1
