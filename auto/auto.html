@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Szervíz</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; margin: 0; padding: 0; 
+        }
+        header, footer {
+            text-align: center;  
+        }
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { display: inline; margin: 0 10px; }
+        nav ul li a { color: white; text-decoration: none; }
+        section { padding: 1rem; text-align: center; }
+        form { max-width: 400px; margin: 1rem auto; }
+        input, textarea, button { display: block; width: 100%; margin: 0.5rem 0; padding: 0.5rem; }
+        button { background: #333; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Auto Szervíz</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">Rólunk</a></li>
+                <li><a href="#services">Szolgáltatások</a></li>
+                <li><a href="#contact">Kapcsolat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>Rólunk</h2>
+        <p>Az Auto Szervíz gyors és megbízható szolgáltatásokat nyújt autójának.</p>
+    </section>
+
+    <section id="services">
+        <h2>Szolgáltatások</h2>
+        <ul>
+            <li>Olajcsere</li>
+            <li>Fékjavítás</li>
+            <li>Kerékcsere</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Kapcsolat</h2>
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Név" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <textarea id="message" name="message" placeholder="Üzenet" rows="4" required></textarea>
+            <button type="submit">Küldés</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Auto Szervíz</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Köszönjük, hogy írt nekünk!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
