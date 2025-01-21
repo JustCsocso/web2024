@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Generate</title>
+</head>
+
+<body onload="init()">
+    Token:
+    ofkgi5d6iggabu89090nrgrzwoc6binwx695l5ud
+
+    Data:
+    https://api.json-generator.com/templates/mROVg2wayWwe/data
+    <script>
+        function init()
+        {
+            letoltes();
+        }
+
+        function letoltes()
+        {
+            let xhr = new XMLHttpRequest;
+            xhr.onlolad = function()
+            {
+                console.log(this.responseText);
+
+                kartya(adatok[0]);
+                
+
+            }
+            xhr.open("GET", "https://api.json-generator.com/templates/mROVg2wayWwe/data?access_token=ofkgi5d6iggabu89090nrgrzwoc6binwx695l5ud");
+            xhr.send();
+        }
+
+        function kartya(adatLista)
+        {
+            console.log(adatLista);
+        }
+    </script>
+</body>
+
+</html>
