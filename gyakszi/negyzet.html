@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+     body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    .negyzet {
+      background: #98bf21;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+    }
+    
+</style>
+
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function () {
+      const $square = $('.negyzet');
+      const step = 50;
+});
+
+$(document).ready(function(){
+  $("jobb").click(function(){
+    $("negyzet").animate({left: '250px'});
+  });
+});
+$(document).ready(function(){
+  $("bal").click(function(){
+    $("negyzet").animate({right: '250px'});
+  });
+});
+$(document).ready(function(){
+  $("le").click(function(){
+    $("negyzet").animate({up: '250px'});
+  });
+});
+$(document).ready(function(){
+  $("fel").click(function(){
+    $("negyzet").animate({down: '250px'});
+  });
+});
+</script> 
+<button class="fel">Fel</button><br>
+<button class="le">Le</button>
+<div class="negyzet"></div>
+<button class="jobb">Jobbra</button>
+<button class="bal">Balra</button>
+
+
+
+</body>
+</html>

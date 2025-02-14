@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Négyzet Mozgatása</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .controls {
+      margin: 10px 0;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .square {
+      background: #98bf21;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button id="up">Fel</button>
+  </div>
+  <div class="controls">
+    <button id="left">Balra</button>
+    <button id="right">Jobbra</button>
+  </div>
+  <div class="controls">
+    <button id="down">Le</button>
+  </div>
+  <div class="square"></div>
+
+  <script>
+    $(document).ready(function () {
+      const $square = $('.square');
+      const step = 50;
+
+      $('#up').click(function () {
+        $square.animate({ top: `-=${step}px` }, 500);
+      });
+
+      $('#down').click(function () {
+        $square.animate({ top: `+=${step}px` }, 500);
+      });
+
+      $('#left').click(function () {
+        $square.animate({ left: `-=${step}px` }, 500);
+      });
+
+      $('#right').click(function () {
+        $square.animate({ left: `+=${step}px` }, 500);
+      });
+    });
+  </script>
+</body>
+</html>
