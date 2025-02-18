@@ -15,15 +15,19 @@ $.ajax({url:"kerdesek.txt",
 })
 */
 
-let keret=jQuery('<div>');
-keret.prop("class","card");
-keret.prop("style","width:18rem");
-
-let kerdes=jQuery('<h5>');
-kerdes.prop("class","card-title");
-
-let valaszok=jQuery('<p>');
-valaszok.prop("class","card-text");
+$("#mySelect").change(function() {
+  if($(this).val() == "fruits") {
+      var fruitsListHTML = "";
+      if($("#myResults").data("fruits") != "1"){
+          $.each(myFruits, function(a, b){
+              fruitsListHTML += "<li>" + b + "</li>";
+          });
+          $("#myResults").append("<ul>"+ fruitsListHTML +"</ul>");
+          $("#myResults").data("fruits", "1");
+      }
+  }
+  
+});
 
 
 

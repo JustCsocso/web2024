@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kvízjáték</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+        .btn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kvízjáték</h1>
+    <div id="quiz-container" class="card"></div>
+    <p>Pontszám: <span id="score">0</span></p>
+
+    <script>
+        let questions = [
+            {question: "Melyik a legnagyobb bolygó?", answers: ["Mars", "Föld", "Jupiter", "Vénusz"], correct: 2},
+            {question: "Hány kontinens van a Földön?", answers: ["5", "6", "7", "8"], correct: 2},
+            {question: "Mi a víz kémiai képlete?", answers: ["CO2", "H2O", "O2", "NaCl"], correct: 1},
+            // További kérdések...
+        ];
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            if (currentQuestion >= questions.length) {
+                $("#quiz-container").html(`<h2>Játék vége!</h2><p>Végső pontszám: ${score}</p>`);
+                return;
+            }
+            let q = questions[currentQuestion];
+            let html = `<h3>${q.question}</h3>`;
+            q.answers.forEach((ans, index) => {
+                html += `<button class='btn' data-index='${index}'>${ans}</button>`;
+            });
+            $("#quiz-container").html(html);
+            $(".btn").on("click", function() {
+                let chosenIndex = $(this).data("index");
+                if (chosenIndex == q.correct) {
+                    alert("Helyes válasz!");
+                    score++;
+                    $("#score").text(score);
+                } else {
+                    alert("Rossz válasz!");
+                }
+                currentQuestion++;
+                loadQuestion();
+            });
+        }
+
+        $(document).ready(function() {
+            loadQuestion();
+        });
+    </script>
+</body>
+</html>

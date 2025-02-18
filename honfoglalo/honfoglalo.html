@@ -12,5 +12,34 @@
 </head>
 <body>
     <script src="project.js"></script>
+    <select id="mySelect" multiple>
+        <option> select </option>
+        <option value="fruits"> fruits
+        <option value="flowers"> flowers
+   </select>
+     <div id="myResults"></div>
+     <input type="text"/>
+     <script type="text/javascript">    
+        var optionsList = {
+              fruits: ["apple","orange","banana"],
+              flowers: ["rose","tulip","carnation"]
+          };
+  
+          $(function() {
+           $("#mySelect").change(function() {
+                  var options = $(this).val();
+                  $.each(options, function(i,e){
+                      if($("#myResults").data(e) != "1"){
+                          var listHTML = "";
+                          $.each(optionsList[e], function(a, b){
+                              listHTML += "<li>" + b + "</li>";
+                          });
+                          $("#myResults").append("<ul>"+ listHTML +"</ul>");
+                          $("#myResults").data(e, "1");
+                      }
+                  });
+              });
+          });
+      </script> 
 </body>
 </html>
