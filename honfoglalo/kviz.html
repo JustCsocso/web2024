@@ -11,15 +11,36 @@
             text-align: center;
             margin: 20px;
         }
-        .card {
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #007BFF;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .quiz {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
             border: 1px solid #ccc;
             padding: 20px;
-            margin: 20px auto;
-            width: 300px;
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            background-color: white;
         }
-        .btn {
+        .gomb {
             display: block;
             margin: 10px auto;
             padding: 10px;
@@ -29,53 +50,65 @@
             cursor: pointer;
             border-radius: 5px;
         }
-        .btn:hover {
-            background-color: #0056b3;
-        }
+        
     </style>
 </head>
 <body>
-    <h1>Kvízjáték</h1>
-    <div id="quiz-container" class="card"></div>
-    <p>Pontszám: <span id="score">0</span></p>
+    <h1>Honfoglaló</h1>
+    <div class="container" id="box-container"></div>
+
+    <div id="quiz" class="quiz"></div>
+    
 
     <script>
-        let questions = [
-            {question: "Melyik a legnagyobb bolygó?", answers: ["Mars", "Föld", "Jupiter", "Vénusz"], correct: 2},
-            {question: "Hány kontinens van a Földön?", answers: ["5", "6", "7", "8"], correct: 2},
-            {question: "Mi a víz kémiai képlete?", answers: ["CO2", "H2O", "O2", "NaCl"], correct: 1},
-            // További kérdések...
-        ];
-        let currentQuestion = 0;
-        let score = 0;
-
-        function loadQuestion() {
-            if (currentQuestion >= questions.length) {
-                $("#quiz-container").html(`<h2>Játék vége!</h2><p>Végső pontszám: ${score}</p>`);
-                return;
-            }
-            let q = questions[currentQuestion];
-            let html = `<h3>${q.question}</h3>`;
-            q.answers.forEach((ans, index) => {
-                html += `<button class='btn' data-index='${index}'>${ans}</button>`;
-            });
-            $("#quiz-container").html(html);
-            $(".btn").on("click", function() {
-                let chosenIndex = $(this).data("index");
-                if (chosenIndex == q.correct) {
-                    alert("Helyes válasz!");
-                    score++;
-                    $("#score").text(score);
-                } else {
-                    alert("Rossz válasz!");
-                }
-                currentQuestion++;
-                loadQuestion();
-            });
-        }
-
         $(document).ready(function() {
-            loadQuestion();
+            
+            
+           
+            for (let i = 1; i <= 19; i++) {
+                let box = $(`<div class="box">${i}</div>`);
+                
+               
+                $("#box-container").append(box);
+            }
+
+            
+           
+            let kerdesek = [
+                {kerdes: "Melyik a legnagyobb bolygó?", valasz: ["Mars", "Föld", "Jupiter", "Vénusz"], helyes: 2},
+                {kerdes: "Hány kontinens van a Földön?", valasz: ["5", "6", "7", "8"], helyes: 2},
+                {kerdes: "Mi a víz kémiai képlete?", valasz: ["CO2", "H2O", "O2", "NaCl"], helyes: 1},
+            ];
+            let currentkerdes = 0;
+
+            function loadkerdes() {
+                
+                let q = kerdesek[currentkerdes];
+                let html = `<h3>${q.kerdes}</h3>`;
+                q.valasz.forEach((ans, index) => {
+                    html += `<button class='gomb' data-index='${index}'>${ans}</button>`;
+                });
+                $("#quiz").html(html);
+                $(".gomb").on("click", function() {
+                    let chosenIndex = $(this).data("index");
+                    if (chosenIndex == q.helyes) {
+                        alert("Jó válasz! Nyomj egy divre");
+                        $(function() {  
+                        $('.box').click(function(){
+                            $(this).css('background', 'yellow');
+                            
+                        });
+                        
+                        });
+                    } else {
+                        alert("Rossz válasz!");
+                    }
+                    currentkerdes++;
+                    loadkerdes();
+                });
+            }
+
+            loadkerdes();
         });
     </script>
 </body>
