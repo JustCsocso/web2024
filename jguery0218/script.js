@@ -42,6 +42,7 @@ function termekKartya(nevURL,kepURL,leirasURL)
     nev.prop("class","card-title")
     nev.html(nevURL)
 
+
     let leiras=jQuery("<p>")
     leiras.prop("class","card-text")
     leiras.html(leirasURL)
