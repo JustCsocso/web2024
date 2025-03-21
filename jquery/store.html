@@ -91,8 +91,8 @@ ha nem mennek az ikonok, akkor sima gomb legyenlegyen egy "új termék" gomb, am
             dataType: "json",
             success: function (data) {
 
-              $("#termekAdat").html("");
-
+              //$("#termekAdat").html("");
+              //$(#"termekTitle").html("");
               let see = jQuery("<h3>");
               see.html(data.title);
               $("#termekAdat").append(see);
